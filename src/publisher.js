@@ -27,9 +27,9 @@ function getWeek(data, date) {
         let events = allEvent.filter(elem => elem.day._text == index);
         let day = [];
 
-        events.forEach((elem, index) => {            
+        events.forEach((elem, index) => {           
             day[index] = {
-                category: elem.category._text,
+                category: getCategory(elem),
                 startTime: elem.starttime._text,
                 endTime: elem.endtime._text,
                 module: getModule(elem.resources.module),
@@ -50,6 +50,11 @@ function getDay(data, date) {
     let week = getWeek(data, date);
     let dateDiff = shared.getDiffWithMonday(shared.getMonday(date), date);
     return week[days[dateDiff]] ? week[days[dateDiff]] : [];
+}
+
+function getCategory(data) {
+    if (data.category && data.category._text) return data.category._text;
+    return null;
 }
 
 function getModule(data) {
