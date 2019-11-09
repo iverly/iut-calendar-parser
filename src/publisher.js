@@ -49,7 +49,7 @@ function getDay(data, date) {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     let week = getWeek(data, date);
     let dateDiff = shared.getDiffWithMonday(shared.getMonday(date), date);
-    return week[days[dateDiff]] ? week[days[dateDiff]] : null;
+    return week[days[dateDiff]] ? week[days[dateDiff]] : [];
 }
 
 function getModule(data) {
