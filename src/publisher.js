@@ -16,9 +16,11 @@ function getWeekIdentifier(data, date) {
     return null;
 }
 
-function getWeek(data, identifier) {
+function getWeek(data, date) {
+    const identifier = getWeekIdentifier(data, date);
+    if (identifier == null) return {};
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-    let allEvent = data.timetable.event.filter(elem => elem.rawweeks._text == identifier)
+    let allEvent = data.timetable.event.filter(elem => elem.rawweeks._text == identifier);
     let result = {};
     
     for (index in days) {
@@ -41,6 +43,13 @@ function getWeek(data, identifier) {
     }
 
     return result;
+}
+
+function getDay(data, date) {
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    let week = getWeek(data, date);
+    let dateDiff = shared.getDiffWithMonday(shared.getMonday(date), date);
+    return week[days[dateDiff]] ? week[days[dateDiff]] : null;
 }
 
 function getModule(data) {
@@ -84,4 +93,4 @@ function getStaff(data) {
     return staffs
 }
 
-module.exports = { getData, getWeekIdentifier, getWeek }
+module.exports = { getData, getWeek, getDay };
