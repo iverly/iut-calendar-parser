@@ -63,6 +63,7 @@ function getGroup(data) {
 function getRoom(data) {
     if (data === undefined) return null;
     if (data.item.a && data.item.a._text) return data.item.a._text;
+    if (data.item._text && data.item._text) return data.item._text;
     let salles = [];
     data.item.forEach((elem, index) => {
         if (elem.a && elem.a._text) salles[index] = elem.a._text;
