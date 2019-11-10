@@ -47,10 +47,17 @@ function getWeek(data) {
     return result;
 }
 
+function getDay(data, date) {
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    let week = getWeek(data);
+    let dateDiff = shared.getDiffWithMonday(shared.getMonday(date), date);
+    return week[days[dateDiff]] ? week[days[dateDiff]] : [];
+}
+
 function getRoom(data) {
     let split = data.split('<br />');
     split = split[split.length - 1];
     return split.replace(/(\r\n|\n|\r)/gm, '');
 }
 
-module.exports = { getData, getWeek }
+module.exports = { getData, getWeek, getDay }
