@@ -28,8 +28,8 @@ function getWeek(data) {
         events.forEach((elem, index) => {
             day[index] = {
                 category: elem.eventCategory,
-                startTime: elem.start.split('T')[1].substring(0, 5),
-                endTime: elem.end.split('T')[1].substring(0, 5),
+                startTime: elem.start ? elem.start.split('T')[1].substring(0, 5) : null,
+                endTime: elem.end ? elem.end.split('T')[1].substring(0, 5) : null,
                 module: elem.module,
                 group: elem.department,
                 room: getRoom(elem.description),
