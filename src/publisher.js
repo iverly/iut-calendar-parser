@@ -59,8 +59,14 @@ function getCategory(data) {
 
 function getModule(data) {
     if (data === undefined) return null;
-    return data.item.a._text;
+    if (data.item.a && data.item.a._text) return data.item.a._text;
+    let modules = [];
+    data.item.forEach((elem, index) => {
+        modules[index] = elem.a._text;
+    })
+    return modules;
 }
+
 
 function getGroup(data) {
     if (data === undefined) return null;
