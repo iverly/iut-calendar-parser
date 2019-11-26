@@ -75,7 +75,8 @@ function getGroup(data) {
     if (data.item[0]._text) return data.item[0]._text;
     let groups = [];
     data.item.forEach((elem, index) => {
-        groups[index] = elem.a._text;
+        if (elem.a && elem.a._text) groups[index] = elem.a._text;
+        if (elem._text) groups[index] = elem._text;
     })
     return groups;
 }
