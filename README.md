@@ -1,5 +1,6 @@
 # iut-calendar-parser
 
+![build logo](https://travis-ci.com/iverly/iut-calendar-parser.svg?branch=master)
 ![size logo](https://img.shields.io/github/languages/code-size/iverly/iut-calendar-parser)
 ![last logo](https://img.shields.io/github/last-commit/iverly/iut-calendar-parser)
 ![license logo](https://img.shields.io/github/license/iverly/iut-calendar-parser)
