@@ -1,8 +1,8 @@
-const publisher = require('../index').publisher;
-const calendar = require('../index').calendar;
+const { publisher } = require('../index');
+const { calendar } = require('../index');
 
-publisher.getData('https://edt.iut-tlse3.fr/planning/info/g8659.xml')
+publisher.getData('https://edt.iut-tlse3.fr/planning/info/g8669.xml')
     .then(console.log);
 
-calendar.getData('GE_S1_g1', new Date()) // Date is mm/dd/yyyy
+calendar.getData('InS2A', new Date()) // Date is mm/dd/yyyy
     .then(console.log);
