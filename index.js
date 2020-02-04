@@ -1,4 +1,4 @@
-module.exports = {
-    publisher: require('./src/publisher'),
-    calendar: require('./src/calendar')
-};
+const publisher = require('./src/publisher');
+const calendar = require('./src/calendar');
+
+module.exports = { publisher, calendar };

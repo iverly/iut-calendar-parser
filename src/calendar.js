@@ -29,7 +29,6 @@ function getWeek(data) {
         days.forEach((day, i) => {
             const now = dateFormat(mondayDate, 'yyyy-mm-dd');
             const events = data.filter((elem) => elem.start.split('T')[0] === now);
-            console.log(now, mondayDate);
             const dayParsed = [];
 
             events.forEach((elem, index) => {

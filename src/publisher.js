@@ -108,16 +108,15 @@ function getWeek(data, date) {
                     room: getRoom(elem.resources.room),
                     staff: getStaff(elem.resources.staff),
                 };
-
-                dayParsed.sort((a, b) => parseInt(a.startTime.split(':')[0], 10) - parseInt(b.startTime.split(':')[0], 10));
-                result[days[i]] = dayParsed;
             });
+
+            dayParsed.sort((a, b) => parseInt(a.startTime.split(':')[0], 10) - parseInt(b.startTime.split(':')[0], 10));
+            result[days[i]] = dayParsed;
         });
+        return result;
     } catch (err) {
         return null;
     }
-
-    return result;
 }
 
 function getDay(data, date) {
